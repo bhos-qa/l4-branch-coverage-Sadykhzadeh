@@ -1,3 +1,4 @@
+import java.io.File
 
 class Classroom(private val finalResults: IntArray) {
 
@@ -35,13 +36,9 @@ class Classroom(private val finalResults: IntArray) {
   }
 
   fun vulnerableFunction() {
-    // input folder name from user
-    val folderName = readln()
-    // run shell script to create folder
-    val command = "mkdir $folderName"
-    val runtime = Runtime.getRuntime()
-    val process = runtime.exec(command)
-    process.waitFor()
+    val tempDir: File = File.createTempFile("", ".")
+    tempDir.delete()
+    tempDir.mkdir()
   }
 
   fun numberOfStudents(): Int {
