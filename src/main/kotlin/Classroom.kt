@@ -1,5 +1,3 @@
-import java.io.File
-import java.util.Scanner
 
 class Classroom(private val finalResults: IntArray) {
 
@@ -51,7 +49,7 @@ class Classroom(private val finalResults: IntArray) {
   }
 
   fun sortAscendingOrder() {
-    var temp = 0
+    var temp: Int
     val n = finalResults.size
     for (i in 0 until n) {
       for (j in i + 1 until n) {
