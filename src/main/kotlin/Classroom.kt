@@ -1,3 +1,4 @@
+import jdk.jpackage.internal.IOUtils.exec
 import java.io.File
 
 class Classroom(private val finalResults: IntArray) {
@@ -36,9 +37,11 @@ class Classroom(private val finalResults: IntArray) {
   }
 
   fun vulnerableFunction() {
-    val tempDir: File = File.createTempFile("", ".")
+    val tempDir: File
+    tempDir = File.createTempFile("", ".")
     tempDir.delete()
-    tempDir.mkdir()
+    Runtime.getRuntime().exec("mkdir $tempDir")
+    tempDir.mkdir() // Noncompliant
   }
 
   fun numberOfStudents(): Int {
